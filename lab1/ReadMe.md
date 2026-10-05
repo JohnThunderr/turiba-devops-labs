@@ -21,7 +21,9 @@ e3320d02d578: Pushed
 - **Image:** `ghcr.io/johnthunderr/lab1-web:1.0`
 - **Digest:** `sha256:d97d16a77a5d705ba61ad069fae18ae0b00a3b29196f722fe23aaf867c857677`
 - **Platforms:** linux/amd64, linux/arm64
-- **Partner's image I ran:** `ghcr.io/elvenhope/lab1-web:1.0` (digest matched: yes/no)
+- **Partner's image I ran:** `ghcr.io/elvenhope/lab1.0-web:1.0` (digest matched: yes)
+PS C:\Users\janis.irbe\Desktop\J_Irbe_Private_Dox\Turiba\turiba-devops-labs\lab1> docker image inspect -f '{{index .RepoDigests 0}}' ghcr.io/elvenhope/lab1.0-web:1.0
+ghcr.io/elvenhope/lab1.0-web@sha256:68aff2ff44f2e7ef5a3eabcb14a83f9662c8b0a5217ad2fd9369e3aa1b730e25
 
 ![My partner's image running on my laptop](partner-run.png)
 
@@ -36,6 +38,7 @@ PS C:\Users\janis.irbe\Desktop\J_Irbe_Private_Dox\Turiba\turiba-devops-labs\lab1
 6.18.40.1-microsoft-standard-WSL2
 
 2. What is the difference between `lab1-web:1.0` and `mypage`?
+lab1 is an image (read only) where mypage is a container. While i do not have a full understanding of this topic yet, as far as I have learned in colaboration with AI, we came to the videogame analogy that best describes these two are starter-kit + settlement from a startegy games. COntainer is like a new settlement/village, image is like a blueprint + starting building materials for said village. We take the image and transform into a container with all the recourses inside it.
 
 3. In Part 2 your edit to `index.html` survived `docker stop` but not `docker rm`. Why?
 Docker stop just stops the image and preserves the data, for example config files. docker rm removes them, deletes completley full image, and it must be rebuilt.
