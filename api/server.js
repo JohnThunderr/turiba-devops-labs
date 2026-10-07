@@ -1,3 +1,8 @@
+//One-line change for exercise
+
+
+
+
 // Course API: a small REST API for todos, stored in PostgreSQL.
 // All configuration comes from environment variables (see .env.example).
 
@@ -86,7 +91,7 @@ ensureSchema()
   .catch((err) => {
     console.warn(
       `Database not reachable (${describeError(err)}). ` +
-        'The API keeps running; /api/todos answers 500 until a database is available.'
+      'The API keeps running; /api/todos answers 500 until a database is available.'
     );
   });
 
