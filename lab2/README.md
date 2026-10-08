@@ -1,7 +1,7 @@
 # Lab 2 · Containerize it, then debug it
 
-- **Image:** `ghcr.io/<you>/course-api:lab2` (public, linux/amd64 + linux/arm64)
-- **Base image digest:** `node:24-alpine@sha256:…`
+- **Image:** `ghcr.io/johnthunderr/course-api:lab2` (public, linux/amd64 + linux/arm64)
+- **Base image digest:** `node:24-alpine@sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1`
 
 ## Part 1 · Images and layers
 
@@ -21,14 +21,13 @@ cow:bad = 65.5 MB · cow:good = 12.9 MB
 
 ## Part 2 · The course API image
 
-sha256:ebfe2f90462722a7a4de65e91990e97fe0d401c70e0e762c5b53302f905ec1c1
 
 | Step | Image | Size |
 |------|-------|-----:|
 | Naive | course-api:naive | 1.75 Gb |
 | + .dockerignore, npm ci --omit=dev, exec form | course-api:step1 | 1.65 Gb |
-| Multi-stage, node:24-alpine, non-root | course-api:lab2 | 1.65 Gb |
-| Reduction against naive | | … % |
+| Multi-stage, node:24-alpine, non-root | course-api:lab2 | 248 Mb |
+| Reduction against naive | | ~85 % |
 
 docker stop before the SIGTERM handler: 10.4 s, exit code 137
                                  after:  3.0 s, exit code 0
