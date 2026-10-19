@@ -31,12 +31,13 @@ Part 1: fill in "I predicted" (the letter and a one-line reason) before you writ
 
 | # | I predicted | What I saw (command → the deciding output line) | Match? | If not: why |
 |---|-------------|--------------------------------------------------|--------|-------------|
-| P1 | B - web does not see the DB, since db sits in back, but web can only see front | ____ | ____ | |
-| P2 | B - while port 5432 is used by PostgreSQL, it is used within the container, and by sending request from outside the container, the request gets refused by OS| ____ | ____ | |
-| P3 | A - down only removes the database, not the volume where todo sits | ____ | ____ | |
-| P4 | C - the same as P3, but in this case -v removes the volume also | ____ | ____ | |
-| P5 | A - health check only tests /healthz, which doesn’t use the database, so it stays healthy, the stopped db fails inside the API, which answers 500.| ____ | ____ | |
-| P6 | B - app.js runs in browser not in Docker; the laptop isn’t on any Docker network, so it can’t resolve the name api. The lookup fails before CORS could even apply.| ____ | ____ | |
+| P1 | B - web does not see the DB, since db sits in back, but web can only see front | thunder@BSW:~/turiba-devops-labs$ docker compose exec web getent hosts db -> No output | Yes | |
+| P2 | B - while port 5432 is used by PostgreSQL, it is used within the container, and by sending request from outside the container, the request gets refused by OS| Db can be reached from web, but refused if accessed directly | Yes | |
+| P3 | A - down only removes the database, not the volume where todo sits | after docker up, I got the message 'survived' | Yes | |
+| P4 | C - the same as P3, but in this case -v removes the volume also | docker compose up -d --wait
+curl -s localhost:8080/api/todos ERROR:  relation "todos" does not exist, SO yes, it deletes both db and volumes and nothing comes back up | Yes | |
+| P5 | A - health check only tests /healthz, which doesn’t use the database, so it stays healthy, the stopped db fails inside the API, which answers 500.| I see 2 services at the beginning app-api and app-web, and afterwards just app-api with status healthy. | Yes | |
+| P6 | B - app.js runs in browser not in Docker; the laptop isn’t on any Docker network, so it can’t resolve the name api. The lookup fails before CORS could even apply.| even web can’t resolve names outside its networks; my browser runs app.js on the laptop, which is on no Docker network, so api can’t be resolved | Yes | |
 
 ## 3 · Backup and restore
 
