@@ -35,18 +35,37 @@ ____
 
 ## 3 · Red PR
 
-- Red PR (URL): ____
-- The test that failed, with Expected and Received (copied): ____
-- The cause line from "On failure: the API log" (copied): ____
-- The merge box while it was red (the text, copied): ____
-- Which commit did the red check test: your branch alone, or your branch merged with `main`? How do you know? ____
+- Red PR (URL):https://github.com/JohnThunderr/turiba-devops-labs/pull/6
+- The test that failed, with Expected and Received (copied): Integration test    
+    Expected: 404
+    Received: 500
+- The cause line from "On failure: the API log" (copied): DELETE /api/todos/abc failed: invalid input syntax for type integer: "abc"
+- The merge box while it was red (the text, copied): 
+    Some checks were not successful
+    1 failing, 1 skipped, 2 successful checks
+    ✘ ci / integration (pull_request) — Failing after 25s — Required
+    ⊘ ci / image (pull_request) — Skipped — Required
+    ✔ ci / lint (pull_request) — Successful in 13s — Required
+    ✔ ci / unit (pull_request) — Successful in 8s — Required
+- Which commit did the red check test: your branch alone, or your branch merged with `main`? How do you know? 
+    It tested my branch combined with main, not my branch on its own. For a pull request, GitHub creates a temporary preview of “what main would look like after this merge” and runs the checks on that. The checkout log shows it: HEAD is now at 5925137 Merge 99451f0… into cc6f6ac…, which is my branch’s last commit merged into the current main.
 
 ## 4 · Answers
 
-**A1.** ____
+**A1.** 
+graph-lint     ✔ success
+graph-build    ✘ failure
+graph-test     ⊘ skipped
+graph-package  ⊘ skipped
+graph-report   ✔ success
 
-**A2.** ____
+report ran due to if: allways() which ruyns regardless of status of previous jobs
 
-**A3.** ____
+**A2.** 
+because test used 'download' step to read the build.txt artifact where package just tried to read it directly, and directly the file does not exists, its only stored as an artifact. An actions/download-artifact step in graph-package would make it find the file.
 
-**A4.** ____
+**A3.** 
+In CI, the job’s steps run directly on the runner VM, not in a container. The PostgreSQL service container publishes port 5432 to that VM, so the API reaches it as localhost:5432. In Lab 4, api was itself a container on the back network, where Docker’s DNS resolves the service name db.
+
+**A4.** 
+The required check integration failed (Expected: 404, Received: 500), and image was skipped because it needs all three checks. The run tested my branch combined with main: the temporary merge commit 5925137 (Merge 99451f0… into cc6f6ac…). The merge was stopped by my protect-main ruleset, which requires lint, unit, integration and image to pass, so the merge box said “Some checks were not successful” and the merge button was blocked. On my Part 2 PR, image ran because all three checks it needs were green, but it didn’t push: on a pull_request run the step “Log in to GHCR (main only)” is skipped and the build runs with push: false. Only the push run on main publishes the image.
