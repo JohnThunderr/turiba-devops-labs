@@ -26,11 +26,11 @@ ____
 ## 2 · Pipeline
 
 - B5, before I filled it in: `localhost` or `db`? I predicted localhost because the job’s steps run directly on the runner VM, not in a container. db can only be resolved by name WITHIN a container. 
-- My first red run in Part 2 (the job, the first red step, the error line copied from the log): ____
-- What I changed to make it green: ____
+- My first red run in Part 2 (the job, the first red step, the error line copied from the log): All was green and no red runs 
+- What I changed to make it green: no changes
 - My lint findings, and how I fixed them (fixed, not silenced): npm run lint: no findings. npm test: 5 of 5 unit tests passed.
-- Part 2 pull request (URL): ____
-- Part 3: will the PR run push an image? I predicted ____. What happened: ____
+- Part 2 pull request (URL): https://github.com/JohnThunderr/turiba-devops-labs/pull/5
+- Part 3: will the PR run push an image? I predicted All would run and image would get pushed successfully unless some kind of a trap built in the code that I have missed (just like in the step 1 where build = break occured). What happened: no. The step “Log in to GHCR (main only)” was skipped, and the build step ran with push: false, because github.event_name was pull_request. PR runs only build the image; the push happens only on main.
 - My image on GHCR, from the `main` run: `ghcr.io/____/turiba-devops-labs/api:____`
 
 ## 3 · Red PR
