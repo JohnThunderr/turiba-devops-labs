@@ -31,7 +31,7 @@ ____
 - My lint findings, and how I fixed them (fixed, not silenced): npm run lint: no findings. npm test: 5 of 5 unit tests passed.
 - Part 2 pull request (URL): https://github.com/JohnThunderr/turiba-devops-labs/pull/5
 - Part 3: will the PR run push an image? I predicted All would run and image would get pushed successfully unless some kind of a trap built in the code that I have missed (just like in the step 1 where build = break occured). What happened: no. The step “Log in to GHCR (main only)” was skipped, and the build step ran with push: false, because github.event_name was pull_request. PR runs only build the image; the push happens only on main.
-- My image on GHCR, from the `main` run: `ghcr.io/____/turiba-devops-labs/api:____`
+- My image on GHCR, from the `main` run: `ghcr.io/johnthunderr/turiba-devops-labs/api:cc6f6ac5386ece095a0279c7aa0ef0ceada6d24b@sha256:e0aead1d06ef3b4e3990a7490a8872686bbf6be0cf268f4df7667e66135531d0`
 
 ## 3 · Red PR
 
