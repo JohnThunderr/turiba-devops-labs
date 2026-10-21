@@ -25,10 +25,10 @@ ____
 
 ## 2 · Pipeline
 
-- B5, before I filled it in: `localhost` or `db`? I predicted ____ because ____
+- B5, before I filled it in: `localhost` or `db`? I predicted localhost because the job’s steps run directly on the runner VM, not in a container. db can only be resolved by name WITHIN a container. 
 - My first red run in Part 2 (the job, the first red step, the error line copied from the log): ____
 - What I changed to make it green: ____
-- My lint findings, and how I fixed them (fixed, not silenced): ____
+- My lint findings, and how I fixed them (fixed, not silenced): npm run lint: no findings. npm test: 5 of 5 unit tests passed.
 - Part 2 pull request (URL): ____
 - Part 3: will the PR run push an image? I predicted ____. What happened: ____
 - My image on GHCR, from the `main` run: `ghcr.io/____/turiba-devops-labs/api:____`
