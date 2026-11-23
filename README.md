@@ -21,7 +21,7 @@ The next lab guide is published here before its session.
 
 ## Capstone
 
-**[Ship it, run it, explain it](capstone-brief/README.md):** your fork, with the missions working together. You hand in the URL of your fork on Evaluentis. **Due Sat 28 Nov, 23:59.** The exam on Mon 30 Nov is about this same fork.
+**[Ship it, run it, explain it](capstone-brief/README.md):** your fork, with the missions working together. You hand in the URL of your fork on Evaluentis. **Due Sat 28 Nov, 17:00.** The exam on Mon 30 Nov is about this same fork.
 
 ## What is in this repository
 
