@@ -2,8 +2,10 @@
 
 **One fork where everything works together: Compose runs the app on your laptop, the pipeline tests it and ships a release, and Helm runs that release on a Kubernetes cluster. There is nothing new to start. You have been building this fork since Session 1. This brief says what must be true in your fork on 28 November, and how it is graded.**
 
-DevOps (ELE1013M) · Turiba University · individual work · version 2.1, 24 Nov 2026. It replaces the capstone in the S1 course overview.
+DevOps (ELE1013M) · Turiba University · individual work · version 2.2, 25 Nov 2026. It replaces the capstone in the S1 course overview.
 
+> **New on 25 Nov · not sure what to do?** Start with [What to do, step by step](what-to-do.md), then look at [an example `capstone/README.md`](example-capstone-readme.md). They explain this brief in plain steps; they change no rule, level or date.
+>
 > **Changed on 24 Nov:** the deadline is now **Sat 28 Nov, 17:00**, with the snapshot at 17:05. Mission 11 was dropped, so the dashboard (T3) is self-study. Section 9 has updated notes on gitleaks, Dependabot and the Grafana login.
 
 | | |
@@ -101,7 +103,7 @@ Everything in Target, plus **one** extension. In `capstone/README.md`, under `##
 
 ## 6 · `capstone/README.md`
 
-Put your write-up in **`capstone/README.md`**, not in the root `README.md`. The course updates the root README, so your changes there would conflict. Use these headings in this order, because the grader looks for them:
+Put your write-up in **`capstone/README.md`**, not in the root `README.md`. The course updates the root README, so your changes there would conflict. Use these headings in this order, because the grader looks for them. [The example](example-capstone-readme.md) shows a filled-in one:
 
 | Heading | What goes in it |
 |---------|-----------------|
