@@ -15,11 +15,29 @@ on:
     branches: [main]                                # B1: which branch gets push runs? (slide 9)
   pull_request:
     branches: [main]
+  workflow_dispatch:                                # run by hand: gitleaks then scans the whole history
 
 permissions:
   contents: read                                    # every job reads the code, nothing more (slide 23)
 
 jobs:
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read                           # on a PR, the action asks which commits are new
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0                            # the whole history, not only the last commit
+      - name: Scan for secrets
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITLEAKS_ENABLE_COMMENTS: false           # comments on the PR would need write permission
+
   lint:
     name: lint
     runs-on: ubuntu-24.04
