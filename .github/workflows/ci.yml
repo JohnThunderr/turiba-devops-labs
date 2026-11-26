@@ -159,6 +159,13 @@ jobs:
             docker logs smoke
             exit 1
           fi
+      - name: Trivy scan (before the push)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ env.IMAGE }}:${{ github.sha }}
+          severity: CRITICAL
+          ignore-unfixed: true                          # only vulnerabilities that already have a fix
+          exit-code: '1'                                # a finding fails the job, so nothing is pushed
       - name: Build, and push from main only
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
