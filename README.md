@@ -21,14 +21,16 @@ The next lab guide is published here before its session.
 
 ## Capstone
 
-**[Ship it, run it, explain it](capstone-brief/README.md):** your fork, with the missions working together. You hand in the URL of your fork on Evaluentis. **Due Sat 28 Nov, 23:59.** The exam on Mon 30 Nov is about this same fork.
+**[Ship it, run it, explain it](capstone-brief/README.md):** your fork, with the missions working together. You hand in the URL of your fork on Evaluentis. **Due Sat 28 Nov, 17:00.** The exam on Mon 30 Nov is about this same fork.
+
+Not sure what to do? Read **[What to do, step by step](capstone-brief/what-to-do.md)** and see **[an example `capstone/README.md`](capstone-brief/example-capstone-readme.md)**.
 
 ## What is in this repository
 
 | Folder | What it is |
 |--------|------------|
 | `lab0N-…/` | The lab guides. Read them; don't change them |
-| `capstone-brief/` | The capstone brief. Read it; don't change it |
+| `capstone-brief/` | The capstone brief, a step-by-step guide and an example write-up. Read them; don't change them |
 | `.github/workflows/` | Workflows that run in your fork on GitHub (from Lab 5 on). The course ships `lab05-graph.yml`; your own `ci.yml` goes here too |
 | `api/` | The **course API**, a small todo service in Node.js. You containerize it in Lab 2 and keep improving it all semester ([details](api/README.md)) |
 | `lab1/`, `lab2/`, … | Created by you in your fork: your write-up for each lab |
