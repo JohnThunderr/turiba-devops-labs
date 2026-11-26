@@ -1,0 +1,35 @@
+# Dependabot opens a pull request when a dependency has a newer version.
+# Every PR goes through the same required checks as any other change.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /api
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+      include: scope            # "chore(deps): …", a Conventional Commit
+
+  - package-ecosystem: github-actions
+    directory: /                # reads .github/workflows/ and updates the pinned SHAs
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+      include: scope
+
+  - package-ecosystem: docker
+    directory: /api             # the base image in api/Dockerfile
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+      include: scope
+
+  - package-ecosystem: docker
+    directory: /web             # the base image in web/Dockerfile
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+      include: scope
