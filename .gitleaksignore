@@ -1,0 +1,7 @@
+# False positives, checked by hand on 2026-11-26. Each of these lines is a public
+# container image reference whose tag is a 40-character Git commit SHA
+# (ghcr.io/.../turiba-devops-labs/api:<commit>). No password or token is involved.
+11923c3f9f203210e4b086e1f1f532919a391c5c:k8s/api-deployment.yaml:generic-api-key:18
+be02709c87549659aaa545d8b54587afe008848a:lab07-run-it-on-a-cluster/README.md:generic-api-key:237
+5ce4dcbf6f2d7aadea4dda3476375d6114aa0067:lab08-run-the-whole-app/check.py:generic-api-key:40
+b08e0c5c233876c6313bb577400167a8a61fe184:lab09-package-it/check.py:generic-api-key:45
