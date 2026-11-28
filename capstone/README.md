@@ -113,7 +113,7 @@ Every change starts on a branch and reaches `main` only through a pull request, 
 | `.github/workflows/lab05-graph.yml` | Course workflow from Lab 5; only its two actions were pinned to a commit SHA |
 | `.github/dependabot.yml` | Weekly update pull requests for npm, GitHub Actions and the Docker base images |
 | `.gitleaksignore` | Four false positives from the history scan (public image tags), listed by commit and line |
-| `k8s/` | Leftover folder of the Lab 7–8 manifests. They were moved into the chart |
+| `k8s/` | The plain manifests of Labs 7–8, as they were before Lab 9 (image `0.2.0`), kept for those lab checks. The chart replaced them; don't deploy from here |
 | `charts/course-app/` | The Helm chart: API, PostgreSQL, Services, ConfigMap, PVC |
 | `infra/` | OpenTofu: the kind cluster, the Namespace, the random password, the Secret and the chart |
 | `capstone/README.md` | This file |
